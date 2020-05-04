@@ -1,0 +1,33 @@
+
+-- Grants for edicarlo@%;
+GRANT USAGE ON *.* TO 'edicarlo'@'%' IDENTIFIED BY PASSWORD '*DBF24F22B87417000A9FCD329B9CA8EA94909002';
+GRANT ALL PRIVILEGES ON `zadmin`.* TO 'edicarlo'@'%';
+GRANT ALL PRIVILEGES ON `epanel`.* TO 'edicarlo'@'%';
+GRANT ALL PRIVILEGES ON `epanel_origin`.* TO 'edicarlo'@'%';
+
+
+-- Grants for epanel@%;
+GRANT USAGE ON *.* TO 'epanel'@'%' IDENTIFIED BY PASSWORD '*26B052196EF1764ED94ACD1A78FDEA07107EE6B1';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `epanel`.* TO 'epanel'@'%';
+
+
+-- Grants for marcio@%;
+GRANT USAGE ON *.* TO 'marcio'@'%' IDENTIFIED BY PASSWORD '*F7D23893B4E125F8BC747DEE642408C97507B6ED';
+GRANT ALL PRIVILEGES ON `epanel`.* TO 'marcio'@'%';
+
+
+-- Grants for kpimonitor@192.168.70.%;
+GRANT USAGE ON *.* TO 'kpimonitor'@'192.168.70.%' IDENTIFIED BY PASSWORD '*042E11C58675B39AC402C5EFE00C92619238D9B2';
+GRANT SELECT ON `kayako`.* TO 'kpimonitor'@'192.168.70.%';
+GRANT SELECT ON `epanel`.* TO 'kpimonitor'@'192.168.70.%';
+
+
+-- Grants for pureftpd@192.168.70.%;
+GRANT USAGE ON *.* TO 'pureftpd'@'192.168.70.%' IDENTIFIED BY PASSWORD '*EF0FFAFAA443CD4F33AA864AF29BCF8733989DB4';
+GRANT SELECT ON `epanel`.* TO 'pureftpd'@'192.168.70.%';
+
+
+-- Grants for zimbra_auth@192.168.70.%;
+GRANT USAGE ON *.* TO 'zimbra_auth'@'192.168.70.%' IDENTIFIED BY PASSWORD '*625C47AC6A498E6EB68A65E6A628AA81B46824CC';
+GRANT SELECT, UPDATE ON `epanel`.* TO 'zimbra_auth'@'192.168.70.%';
+

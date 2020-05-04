@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php
+  labels:
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: php
+        tier: backend
+    spec:
+      volumes:
+      - name: code
+        persistentVolumeClaim:
+          claimName: code
+      containers:
+      - name: php
+        image: erickoliveira/php-fpm72
+        volumeMounts:
+        - name: code
+          mountPath: /code
+      initContainers:
+      - name: git-clone
+        image: alpine/git
+        volumeMounts:
+        - name: code
+          mountPath: /code
+        command: ['/bin/sh', '-c']
+        args: ['git clone https://github.com/erickcezar/e-panel && mv e-panel/* /code']  
