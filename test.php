@@ -1,8 +1,18 @@
- <?php
-//simple counter to test sessions. should increment on each page reload.
-session_start();
-$count = isset($_SESSION['count']) ? $_SESSION['count'] : 1;
+<?php
+     session_start();  #start a session
 
-echo $count;
+    if ( !isset( $_SESSION['count'] ) ) 
+     $_SESSION['count'] = 1; else $_SESSION['count']++;
+?>
 
-$_SESSION['count'] = ++$count;
+
+<html>
+<head>
+<title>Count Visits</title>
+</head>
+
+<body>
+<h2>You have visited this page <?php echo( $_SESSION['count'] ); ?> times in this session</h2>
+
+</body>
+</html>
